@@ -16,7 +16,7 @@ import {
   Cloud
 } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
+// import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 
 const skillCategories = [
@@ -155,14 +155,15 @@ export function Skills() {
                         </div>
                       </div>
                       <div className="relative">
-                        <Progress value={0} className="h-2 bg-muted" />
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1.5, delay: categoryIndex * 0.1 + skillIndex * 0.1 }}
-                          viewport={{ once: true }}
-                          className={`absolute top-0 left-0 h-2 ${skill.color} rounded-full`}
-                        />
+                        <div className="h-2 bg-muted rounded-full overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            transition={{ duration: 1.5, delay: categoryIndex * 0.1 + skillIndex * 0.1 }}
+                            viewport={{ once: true }}
+                            className={`h-full ${skill.color} rounded-full`}
+                          />
+                        </div>
                       </div>
                     </motion.div>
                   ))}
