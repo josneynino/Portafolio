@@ -44,8 +44,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'josney.alejandro@example.com',
-    href: 'mailto:josney.alejandro@example.com',
+    value: 'jozneydeveloper@gmail.com',
+    href: 'mailto:jozneydeveloper@gmail.com',
     color: 'from-blue-500 to-cyan-500',
     description: 'Respondo en 24 horas',
   },
@@ -71,7 +71,7 @@ const socialLinks = [
   {
     icon: Linkedin,
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/josney-niño-5956b1278',
+    href: 'https://www.linkedin.com/in/josney-ni%C3%B1o-5956b1278/',
     color: 'hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20',
     followers: '30+',
   },
@@ -84,26 +84,7 @@ const socialLinks = [
   },
 ];
 
-const quickActions = [
-  {
-    icon: Calendar,
-    title: 'Agendar Reunión',
-    description: 'Programa una videollamada de 30 minutos',
-    action: 'schedule',
-  },
-  {
-    icon: MessageCircle,
-    title: 'Chat Rápido',
-    description: 'Envía un mensaje directo',
-    action: 'chat',
-  },
-  {
-    icon: Mail,
-    title: 'Propuesta de Proyecto',
-    description: 'Discute tu próximo proyecto',
-    action: 'proposal',
-  },
-];
+const quickActions: any[] = [];
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -169,35 +150,7 @@ export function Contact() {
         </motion.div>
 
         {/* Quick Actions */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-6 mb-16"
-        >
-          {quickActions.map((action, index) => (
-            <motion.div
-              key={action.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="group cursor-pointer"
-            >
-              <Card className="text-center p-6 card-enhanced h-full">
-                <action.icon className="w-12 h-12 text-blue-600 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                  {action.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {action.description}
-                </p>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Eliminado el bloque de quickActions porque ya no hay acciones rápidas que mostrar */}
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
@@ -273,8 +226,6 @@ export function Contact() {
                     className={`group relative w-16 h-16 rounded-2xl border-2 border-border transition-all duration-300 flex flex-col items-center justify-center ${social.color}`}
                   >
                     <social.icon className="h-6 w-6 mb-1" />
-                    <span className="text-xs font-medium">{social.followers}</span>
-                    
                     {/* Tooltip */}
                     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       {social.label}
@@ -345,111 +296,56 @@ export function Contact() {
                     </p>
                   </motion.div>
                 ) : (
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <FormField
-                          control={form.control}
+                  <form
+                    action="https://formspree.io/f/xxxxxxx" // Reemplaza por tu endpoint real de Formspree
+                    method="POST"
+                    className="space-y-6"
+                  >
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium mb-1">Nombre Completo</label>
+                        <Input
+                          type="text"
                           name="name"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Nombre Completo</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Tu nombre" 
-                                  {...field} 
-                                  className="focus:ring-2 focus:ring-blue-500 transition-all duration-300"
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Email</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="tu.email@ejemplo.com" 
-                                  {...field} 
-                                  className="focus:ring-2 focus:ring-blue-500 transition-all duration-300"
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
+                          placeholder="Tu nombre"
+                          required
+                          className="focus:ring-2 focus:ring-blue-500 transition-all duration-300"
                         />
                       </div>
-
-                      <FormField
-                        control={form.control}
+                      <div>
+                        <label className="block text-sm font-medium mb-1">Email</label>
+                        <Input
+                          type="email"
+                          name="email"
+                          placeholder="tu.email@ejemplo.com"
+                          required
+                          className="focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Asunto</label>
+                      <Input
+                        type="text"
                         name="subject"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Asunto</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="¿De qué se trata tu proyecto?" 
-                                {...field} 
-                                className="focus:ring-2 focus:ring-blue-500 transition-all duration-300"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
+                        placeholder="¿De qué se trata tu proyecto?"
+                        required
+                        className="focus:ring-2 focus:ring-blue-500 transition-all duration-300"
                       />
-
-                      <FormField
-                        control={form.control}
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Mensaje</label>
+                      <Textarea
                         name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Mensaje</FormLabel>
-                            <FormControl>
-                              <Textarea
-                                placeholder="Cuéntame más sobre tu proyecto, objetivos y cómo puedo ayudarte..."
-                                className="min-h-[150px] focus:ring-2 focus:ring-blue-500 transition-all duration-300"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
+                        placeholder="Cuéntame más sobre tu proyecto, objetivos y cómo puedo ayudarte..."
+                        required
+                        className="min-h-[150px] focus:ring-2 focus:ring-blue-500 transition-all duration-300"
                       />
-
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <Button
-                          type="submit"
-                          size="lg"
-                          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
-                          disabled={isSubmitting}
-                        >
-                          {isSubmitting ? (
-                            <div className="flex items-center space-x-2">
-                              <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
-                              />
-                              <span>Enviando...</span>
-                            </div>
-                          ) : (
-                            <div className="flex items-center space-x-2">
-                              <Send className="h-5 w-5" />
-                              <span>Enviar Mensaje</span>
-                            </div>
-                          )}
-                        </Button>
-                      </motion.div>
-                    </form>
-                  </Form>
+                    </div>
+                    <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
+                      Enviar
+                    </Button>
+                  </form>
                 )}
               </CardContent>
             </Card>

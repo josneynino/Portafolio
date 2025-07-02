@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Code, Palette, Rocket, Users, Award, Coffee, Heart, Zap } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
 
 const highlights = [
   {
@@ -108,10 +109,13 @@ export function About() {
                   transition={{ duration: 0.3 }}
                   className="w-72 h-72 rounded-2xl overflow-hidden shadow-2xl"
                 >
-                  <img 
+                  <Image 
                     src="/assets/foto.png" 
                     alt="Josney Alejandro Niño Gómez" 
+                    width={288}
+                    height={288}
                     className="w-full h-full object-cover"
+                    priority
                   />
                 </motion.div>
               </div>

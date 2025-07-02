@@ -225,43 +225,6 @@ export function Experience() {
             ))}
           </div>
         </div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl p-8 border border-green-200/50 dark:border-green-800/50">
-            <h3 className="text-2xl font-bold mb-4">¿Buscas un desarrollador experimentado?</h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Con más de 4 años de experiencia y un historial comprobado de entrega de proyectos exitosos, 
-              estoy listo para contribuir a tu próximo gran proyecto.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary"
-                onClick={() => {
-                  const element = document.querySelector('#contact');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                Hablemos
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-border/50 hover:border-blue-500/50 bg-background/50 backdrop-blur-sm rounded-xl transition-all duration-300 hover:shadow-lg font-semibold"
-              >
-                Descargar CV
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

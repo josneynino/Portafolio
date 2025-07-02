@@ -1,13 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Heart, Linkedin, Github, Mail, ArrowUp, Code, Coffee } from 'lucide-react';
+import { Heart, Linkedin, Github, Mail, ArrowUp, Code, Coffee, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const socialLinks = [
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/in/josney-alejandro',
+    href: 'https://www.linkedin.com/in/josney-ni%C3%B1o-5956b1278/',
     icon: Linkedin,
     color: 'hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20',
   },
@@ -19,7 +19,7 @@ const socialLinks = [
   },
   {
     name: 'Email',
-    href: 'mailto:josney.alejandro@example.com',
+    href: 'mailto:jozneydeveloper@gmail.com',
     icon: Mail,
     color: 'hover:text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20',
   },
@@ -136,14 +136,14 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-foreground">Conecta Conmigo</h4>
             
             <div className="space-y-4">
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <a href="mailto:jozneydeveloper@gmail.com" className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-blue-600">
                 <Mail className="h-4 w-4" />
-                <span>josney.alejandro@example.com</span>
-              </div>
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Coffee className="h-4 w-4" />
-                <span>Disponible para proyectos</span>
-              </div>
+                <span>jozneydeveloper@gmail.com</span>
+              </a>
+              <a href="tel:5651512762" className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-green-600">
+                <Phone className="h-4 w-4" />
+                <span>5651512762</span>
+              </a>
             </div>
 
             <div className="flex space-x-3">
@@ -177,33 +177,7 @@ export function Footer() {
           className="border-t border-border/50 pt-8"
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-muted-foreground">
-              <p>© {currentYear} Josney Alejandro Niño Gómez. Todos los derechos reservados.</p>
-              
-              <div className="flex items-center space-x-1">
-                <span>Hecho con</span>
-                <Heart className="h-4 w-4 text-red-500" fill="currentColor" />
-                <span>usando</span>
-                <Code className="h-4 w-4 text-blue-500" />
-                <span>Next.js & TypeScript</span>
-              </div>
-            </div>
-
-            {/* Back to Top Button */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                onClick={scrollToTop}
-                variant="outline"
-                size="sm"
-                className="group border-border/50 hover:border-blue-500/50 transition-all duration-300"
-              >
-                <ArrowUp className="h-4 w-4 mr-2 group-hover:-translate-y-1 transition-transform duration-300" />
-                Volver Arriba
-              </Button>
-            </motion.div>
+            {/* Eliminado el texto de derechos reservados y cualquier texto legal */}
           </div>
         </motion.div>
       </div>

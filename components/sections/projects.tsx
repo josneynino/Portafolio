@@ -52,17 +52,6 @@ const projects = [
     category: 'Full Stack',
   },
   {
-    title: 'Fiananzas Web',
-    description: 'Aplicación web para gestión financiera personal. Herramienta completa para el control de gastos, ingresos y presupuestos.',
-    image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['TypeScript', 'React.js', 'Firebase', 'Chart.js'],
-    githubUrl: 'https://github.com/josneynino/fiananzas-web',
-    liveUrl: 'https://fiananzas-web.vercel.app',
-    featured: false,
-    stats: { stars: 15, forks: 4, views: 520 },
-    category: 'Full Stack',
-  },
-  {
     title: 'Draco Studio',
     description: 'Sitio web para estudio creativo y servicios de diseño. Landing page moderna con portafolio de trabajos y servicios ofrecidos.',
     image: 'https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=800',

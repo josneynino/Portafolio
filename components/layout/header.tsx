@@ -130,17 +130,14 @@ export function Header() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="hidden sm:block"
             >
-              <Button
-                variant="outline"
-                size="sm"
-                className="relative overflow-hidden group border-border/50 hover:border-blue-500/50 transition-all duration-300"
+              <a
+                href="/CV_Josney_Niño.docx.pdf"
+                download
+                className="relative overflow-hidden group border border-border/50 hover:border-blue-500/50 transition-all duration-300 px-4 py-2 rounded-xl flex items-center space-x-2"
               >
-                <span className="relative z-10 flex items-center space-x-2">
-                  <Download className="h-4 w-4" />
-                  <span>CV</span>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Button>
+                <Download className="h-4 w-4" />
+                <span>CV</span>
+              </a>
             </motion.div>
 
             {/* Mobile menu button */}
@@ -208,14 +205,14 @@ export function Header() {
                   transition={{ duration: 0.3, delay: navigation.length * 0.1 }}
                   className="pt-2"
                 >
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full border-border/50 hover:border-blue-500/50"
+                  <a
+                    href="/CV_Josney_Niño.docx.pdf"
+                    download
+                    className="w-full border border-border/50 hover:border-blue-500/50 px-4 py-2 rounded-xl flex items-center justify-center space-x-2"
                   >
                     <Download className="h-4 w-4 mr-2" />
                     Descargar CV
-                  </Button>
+                  </a>
                 </motion.div>
               </div>
             </motion.div>
